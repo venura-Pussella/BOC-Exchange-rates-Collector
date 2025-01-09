@@ -18,11 +18,14 @@ async def fetch_url():
         
         # Get the content of the page
         content = await page.content()
+
+        # Get fullpage screenshot for reference
+        screenshot = await page.screenshot(full_page=True)
         
         # Close the browser
         await browser.close()
 
-        return content
+        return content, screenshot
 
 # Write the content to a file
 # def write_content_to_html_file(content):
